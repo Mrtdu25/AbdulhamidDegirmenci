@@ -90,7 +90,7 @@ Feature: Calendar Events
   Scenario: Verify that following message as a summary is displayed: “Summary: Daily every 1 day, end by Nov 18, 2021”
     And user clicks on create calendar event button
     And Select "Repeat" checkbox
-    And Select “By "Nov" 18, 2021” as an “Ends” option.
+    And Select "By Nov 18, 2021" as an “Ends” option.
     Then Verify that following message as a summary is displayed: "Daily every 1 day, end by Nov 18, 2021"
 
   @TC12

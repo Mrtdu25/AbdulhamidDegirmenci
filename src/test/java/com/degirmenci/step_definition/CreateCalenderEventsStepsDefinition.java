@@ -218,6 +218,13 @@ public class CreateCalenderEventsStepsDefinition {
 
     //TC11
 
+    @When("Select {string} as an “Ends” option.")
+    public void select_as_an_ends_option(String string) {
+
+        calenderEventPage.selectInputOption(string);
+
+        BrowserUtils.wait(5);
+    }
 
 
 

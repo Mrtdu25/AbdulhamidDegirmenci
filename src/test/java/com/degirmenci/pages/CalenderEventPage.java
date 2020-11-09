@@ -14,8 +14,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.naming.ldap.PagedResultsControl;
-import java.util.List;
 
 
 public class CalenderEventPage extends BasePage {
@@ -101,6 +99,17 @@ public class CalenderEventPage extends BasePage {
 
     @FindBy(xpath = "//input[@data-related-field='occurrences']")
     private WebElement occurrencesInput;
+
+    @FindBy(xpath = "//span[contains(text(),'By')and@class='recurrence-subview-control__text' ]")
+    private WebElement byCheckbox;
+
+    @FindBy(xpath = "//input[@placeholder=\"Choose a date\" and@class=\"datepicker-input hasDatepicker\" ]")
+    private WebElement selectDateByInput;
+
+
+
+
+
 
 
 
@@ -330,6 +339,22 @@ public class CalenderEventPage extends BasePage {
 
         afterCheckBox.click();
         occurrencesInput.sendKeys(occurrences, Keys.ENTER);
+    }
+
+
+    //TC11
+
+    public void selectInputOption(String date){
+
+     date=date.substring(3);
+     BrowserUtils.clickOnElement(byCheckbox);
+
+     selectDateByInput.clear();
+     selectDateByInput.sendKeys(date+Keys.ENTER);
+
+
+
+
     }
 
 
