@@ -29,7 +29,7 @@ Feature: Calendar Events
     And Deselect all options except Title
     Then Verify that Title column still displayed
 
-  @TC3
+  @TC3 @smoke
   Scenario: Verify that “Save And Close”, “Save And New” and “Save” options are available
     And user clicks on create calendar event button
     And Expand Save And Close menu
@@ -38,10 +38,10 @@ Feature: Calendar Events
   @TC4
   Scenario:Verify that “All Calendar Events” page subtitle is displayed
     And user clicks on create calendar event button
-    And Click on “Cancel” button
-    Then Verify that “All Calendar Events” page subtitle is displayed
+    And Click on "Cancel" button
+    Then Verify that "All Calendar Events" page subtitle is displayed
 
-  @TC5
+  @TC5 @smoke
   Scenario: Verify that difference between end and start time is exactly 1 hour
     And user clicks on create calendar event button
     Then Verify that difference between end and start time is exactly 1 hour
