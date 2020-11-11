@@ -1,6 +1,8 @@
 package com.degirmenci.pages;
 
 import com.degirmenci.utils.ConfigurationReader;
+import com.degirmenci.utils.Driver;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
