@@ -4,10 +4,18 @@ import com.degirmenci.utils.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
+
+    //    hook before = @BeforeMethod in TestNG
+//    hook after = @AfterMethod in TestNG
+//    it's not a good idea to mix implicit and explicit waits. It can lead to unexpectedly long waits.
+//    usually, we just use explicit and fluent waits.
 
     @Before
     public void setup(Scenario scenario) {
@@ -34,13 +42,16 @@ public class Hooks {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown(Scenario scenario) {
         //close browser, close DB connection, close tunnel,capture screenshot of the error, etc..
         //this is a hook after
         //runs automatically after every test
+        if (scenario.isFailed()){
+            byte[] data = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(data, "image/png", scenario.getName());
+        }
+
         Driver.closeDriver();
         System.out.println(":::(^_^) End of test execution (*_*):::");
     }
-
-
 }
